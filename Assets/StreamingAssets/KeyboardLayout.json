@@ -1,0 +1,147 @@
+{
+    "sizes": 
+    [
+        {
+            "name": "1u",
+            "size": 18
+        },
+        {
+            "name": "1.5u",
+            "size": 27
+        }
+    ],
+    "rows": 
+    [
+        {
+            "num": "0",
+            "offset": "4,10,0",
+            "margin_x": 1.0,
+            "columns": 
+            [
+                {
+                    "text": "Esc",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "1",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "2",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "3",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "4",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "5",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "6",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "7",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "8",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "9",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "0",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "-",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "=",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "¥",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "`",
+                    "size": "1u,1u"
+                }
+            ]
+        },
+        {
+            "num": "1",
+            "offset": "4,29,0",
+            "margin_x": "1",
+            "columns": [
+                {
+                    "text": "Tab",
+                    "size": "1.5u,1u"
+                },
+                {
+                    "text": "q",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "w",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "e",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "r",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "t",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "y",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "u",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "i",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "o",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "p",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "[",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "]",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "Delete",
+                    "size": "1.5u,1u"
+                }
+            ]
+        }
+    ]
+}
