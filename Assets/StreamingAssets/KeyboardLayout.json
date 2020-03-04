@@ -1,6 +1,9 @@
 {
-    "sizes": 
-    [
+    "bodySize": {
+        "sizeX": 295,
+        "sizeZ": 110
+    },
+    "sizes": [
         {
             "name": "1u",
             "size": 18
@@ -8,16 +11,26 @@
         {
             "name": "1.5u",
             "size": 27
+        },
+        {
+            "name": "1.75u",
+            "size": 31.5
+        },
+        {
+            "name": "2.33u",
+            "size": 42
+        },
+        {
+            "name": 6.3,
+            "size": 113.4
         }
     ],
-    "rows": 
-    [
+    "rows": [
         {
             "num": "0",
-            "offset": "4,10,0",
+            "offset": "4,0,10",
             "margin_x": 1.0,
-            "columns": 
-            [
+            "columns": [
                 {
                     "text": "Esc",
                     "size": "1u,1u"
@@ -82,7 +95,7 @@
         },
         {
             "num": "1",
-            "offset": "4,29,0",
+            "offset": "4,0,29",
             "margin_x": "1",
             "columns": [
                 {
@@ -140,6 +153,151 @@
                 {
                     "text": "Delete",
                     "size": "1.5u,1u"
+                }
+            ]
+        },
+        {
+            "num": "2",
+            "offset": "4,0,48",
+            "margin_x": "1",
+            "columns": [
+                {
+                    "text": "Ctrl",
+                    "size": "1.75u,1u"
+                },
+                {
+                    "text": "a",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "s",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "d",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "f",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "g",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "h",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "j",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "k",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "l",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": ";",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "'",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "Enter",
+                    "size": "2.33u,1u"
+                }
+            ]
+        },
+        {
+            "num": "3",
+            "offset": "4,0,67",
+            "margin_x": "1",
+            "columns": [
+                {
+                    "text": "lShift",
+                    "size": "2.33u,1u"
+                },
+                {
+                    "text": "z",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "x",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "c",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "v",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "b",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "n",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "m",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": ",",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": ".",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "/",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "rShift",
+                    "size": "1.75u,1u"
+                },
+                {
+                    "text": "Fn",
+                    "size": "1u,1u"
+                }
+            ]
+        },
+        {
+            "num": "4",
+            "offset": "33,0,86",
+            "margin_x": "1",
+            "columns": [
+                {
+                    "text": "lAlt",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "lCmd",
+                    "size": "1.5u,1u"
+                },
+                {
+                    "text": "space",
+                    "size": "1u,1u"
+                },
+                {
+                    "text": "rCmd",
+                    "size": "1.5u,1u"
+                },
+                {
+                    "text": "rAlt",
+                    "size": "1u,1u"
                 }
             ]
         }

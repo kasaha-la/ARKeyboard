@@ -7,9 +7,14 @@ using TMPro;
 public class KeyboardController : MonoBehaviour
 {
     public GameObject textMeshProObj;
+    public GameObject keyObj;
     private TextMeshPro textMeshPro;
     Rigidbody rigidbody;
-    private float convertMilitoUnitWeight = 0.001f;
+    #if UNITY_EDITOR 
+        private float convertMilitoUnitWeight = 0.1f;
+    #else
+        private float convertMilitoUnitWeight = 0.001f;
+    #endif
     // Start is called before the first frame update
     void Start()
     {
@@ -23,18 +28,27 @@ public class KeyboardController : MonoBehaviour
         foreach (char c in Input.inputString)
         {
             ArrayList arKey = new ArrayList();
-            if (KeyboardLayout.keyLayout.TryGetValue(c.ToString(),out arKey))
+            string tmpStr;
+            TextMeshPro aText;
+            GameObject gObj;
+            Vector3 gObjSize;
+            Vector3 keyPos = rigidbody.position + new Vector3(-1*KeyboardLayout.body.sizeX/2,0,KeyboardLayout.body.sizeZ/2) * convertMilitoUnitWeight;
+            if (KeyboardLayout.layout.TryGetValue(c.ToString(), out arKey))
             {
-                TextMeshPro aText = Instantiate(textMeshPro,
-                (Vector3)arKey[0] * convertMilitoUnitWeight + new Vector3(0, 0, rigidbody.position.z),
-                Quaternion.identity);
-                aText.text = c.ToString();
-            }else{
-                TextMeshPro aText = Instantiate(textMeshPro,
-                rigidbody.position,
-                Quaternion.identity);
-                aText.text = "ないです";
+                keyPos += (Vector3)arKey[0] * convertMilitoUnitWeight;
+                gObjSize = (Vector3)arKey[1] * convertMilitoUnitWeight;;
+                tmpStr = c.ToString();
             }
+            else
+            {
+                keyPos += new Vector3(KeyboardLayout.body.sizeX/2,0,0) * convertMilitoUnitWeight;
+                gObjSize = new Vector3(20,1,20) * convertMilitoUnitWeight;
+                tmpStr = "><";
+            }
+            gObj = Instantiate(keyObj,keyPos,Quaternion.identity);
+            gObj.transform.localScale = gObjSize;
+            aText = Instantiate(textMeshPro, keyPos, Quaternion.identity);
+            aText.text = tmpStr;
         }
     }
 }

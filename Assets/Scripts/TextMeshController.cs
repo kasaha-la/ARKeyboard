@@ -23,7 +23,7 @@ public class TextMeshController : MonoBehaviour
     {
 		if(currentTime < timeToLive){
 			Vector3 position = rigidbody.position;
-			position.y += 3 * Time.deltaTime;
+			position.y += 0.16f * Time.deltaTime;
 			rigidbody.MovePosition(position);
 			currentTime += Time.deltaTime;
 		}else{

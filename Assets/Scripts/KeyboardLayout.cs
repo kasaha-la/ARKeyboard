@@ -9,7 +9,16 @@ public class KeyboardLayout : MonoBehaviour
 {
     // キーの配置
     // -> [Text<String>,coord[Position<Vector3>,size<Vector2>]<Object>]
-    public static Dictionary<string, ArrayList> keyLayout = new Dictionary<string, ArrayList>();
+    // public static
+    public static Dictionary<string, ArrayList> layout = new Dictionary<string, ArrayList>();
+    public static Body body = new Body();
+
+    public class Body
+    {
+        public float sizeX;
+        public float sizeZ;
+    }
+
 
     void Start()
     {
@@ -32,8 +41,12 @@ public class KeyboardLayout : MonoBehaviour
     void setKeyLayout(KeyboardLayoutList data)
     {
         Dictionary<string, int> dicSize = new Dictionary<string, int>();
-        
-        // サイズ設定取得
+
+        // 本体サイズ設定取得
+        body.sizeX = data.bodySize.sizeX;
+        body.sizeZ = data.bodySize.sizeZ;
+
+        // キーサイズ設定取得
         foreach (Sizes size in data.sizes)
         {
             dicSize.Add(size.name, size.size);
@@ -43,7 +56,7 @@ public class KeyboardLayout : MonoBehaviour
         foreach (Row row in data.rows)
         {
             string[] saOffset = row.offset.Split(',');
-            Vector3 v3Offset = new Vector3(float.Parse(saOffset[0]),float.Parse(saOffset[1]),float.Parse(saOffset[2]));
+            Vector3 v3Offset = new Vector3(float.Parse(saOffset[0]), float.Parse(saOffset[1]), -1 * float.Parse(saOffset[2]));
             Vector3 v3Nowpos = v3Offset;
             float fMargin_x = row.margin_x;
 
@@ -53,14 +66,14 @@ public class KeyboardLayout : MonoBehaviour
 
                 string[] saSize = column.size.Split(',');
                 // サイズ変換
-                Vector2 v2Size = new Vector2(dicSize[saSize[0]], dicSize[saSize[1]]);
+                Vector3 v3Size = new Vector3(dicSize[saSize[0]], 1,dicSize[saSize[1]]);
 
-                v3Nowpos += new Vector3(v2Size.x,0,0);
+                v3Nowpos += new Vector3(v3Size.x, 0, 0);
 
                 key.Add(v3Nowpos);
-                key.Add(v2Size);
+                key.Add(v3Size);
                 // 反映
-                keyLayout.Add(column.text, key);
+                layout.Add(column.text, key);
             }
         }
     }
@@ -69,8 +82,15 @@ public class KeyboardLayout : MonoBehaviour
     [System.Serializable]
     class KeyboardLayoutList
     {
+        public BodySize bodySize;
         public Sizes[] sizes;
         public Row[] rows;
+    }
+    [System.Serializable]
+    class BodySize
+    {
+        public float sizeX;
+        public float sizeZ;
     }
     [System.Serializable]
     class Sizes
