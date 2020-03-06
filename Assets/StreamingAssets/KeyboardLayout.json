@@ -21,7 +21,7 @@
             "size": 42
         },
         {
-            "name": 6.3,
+            "name": "6.3u",
             "size": 113.4
         }
     ],
@@ -221,7 +221,7 @@
             "margin_x": "1",
             "columns": [
                 {
-                    "text": "lShift",
+                    "text": "Shift",
                     "size": "2.33u,1u"
                 },
                 {
@@ -265,7 +265,7 @@
                     "size": "1u,1u"
                 },
                 {
-                    "text": "rShift",
+                    "text": "Shift.",
                     "size": "1.75u,1u"
                 },
                 {
@@ -280,23 +280,23 @@
             "margin_x": "1",
             "columns": [
                 {
-                    "text": "lAlt",
+                    "text": "Alt",
                     "size": "1u,1u"
                 },
                 {
-                    "text": "lCmd",
+                    "text": "Cmd",
                     "size": "1.5u,1u"
                 },
                 {
                     "text": "space",
-                    "size": "1u,1u"
+                    "size": "6.3u,1u"
                 },
                 {
-                    "text": "rCmd",
+                    "text": "Cmd.",
                     "size": "1.5u,1u"
                 },
                 {
-                    "text": "rAlt",
+                    "text": "Alt.",
                     "size": "1u,1u"
                 }
             ]

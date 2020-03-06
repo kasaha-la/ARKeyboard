@@ -56,7 +56,7 @@ public class KeyboardLayout : MonoBehaviour
         foreach (Row row in data.rows)
         {
             string[] saOffset = row.offset.Split(',');
-            Vector3 v3Offset = new Vector3(float.Parse(saOffset[0]), float.Parse(saOffset[1]), -1 * float.Parse(saOffset[2]));
+            Vector3 v3Offset = new Vector3(float.Parse(saOffset[0]), float.Parse(saOffset[1]), -1 * float.Parse(saOffset[2]) -10f);
             Vector3 v3Nowpos = v3Offset;
             float fMargin_x = row.margin_x;
 
@@ -68,10 +68,11 @@ public class KeyboardLayout : MonoBehaviour
                 // サイズ変換
                 Vector3 v3Size = new Vector3(dicSize[saSize[0]], 1,dicSize[saSize[1]]);
 
-                v3Nowpos += new Vector3(v3Size.x, 0, 0);
-
-                key.Add(v3Nowpos);
+                key.Add(v3Nowpos + v3Size/2);
                 key.Add(v3Size);
+
+                v3Nowpos += new Vector3(v3Size.x + fMargin_x, 0, 0) ;
+
                 // 反映
                 layout.Add(column.text, key);
             }
