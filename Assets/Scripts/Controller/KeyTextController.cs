@@ -11,7 +11,7 @@ public class KeyTextController : MonoBehaviour
     //  コンポーネント
     Rigidbody rigidbody;
     //  内部
-        public bool isEnter = false;
+    public bool isEnter = false;
     private TextMeshPro textMeshPro;
     float timeToLive = 2.0f;
     private float currentTime;
@@ -23,29 +23,43 @@ public class KeyTextController : MonoBehaviour
 
     void Start()
     {
+        // 初期取得
         rigidbody = GetComponent<Rigidbody>();
         textMeshPro = this.GetComponent<TextMeshPro>();
         size = gameObject.transform.localScale;
         color = textMeshPro.color;
-        currentTime = 0;
 
+        // 初期設定
+        currentTime = 0;
         speed += Random.value * 0.05f;
     }
 
     void Update()
     {
+        KeyText();
+    }
+
+    void KeyText()
+    {
         if (currentTime < timeToLive)
         {
+            // 上昇
             Vector3 position = rigidbody.position;
             position.y += speed * convertMilitoUnitWeight * Time.deltaTime;
             rigidbody.MovePosition(position);
-            currentTime += Time.deltaTime;
+
+            // エンター時でない場合は縮小
             if (!isEnter)
+            {
                 gameObject.transform.localScale = size * (timeToLive - currentTime) / timeToLive;
+            }
+            // エンターの場合は透明化
             else
             {
                 textMeshPro.color = new Color(color.r, color.g, color.b, 1 * (timeToLive - currentTime) / timeToLive);
             }
+
+            currentTime += Time.deltaTime;
         }
         else
         {

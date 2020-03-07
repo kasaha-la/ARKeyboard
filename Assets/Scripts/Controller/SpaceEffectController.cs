@@ -18,27 +18,38 @@ public class SpaceEffectController : MonoBehaviour
 
     void Start()
     {
+        // 初期取得
         size = gameObject.transform.localScale;
         mesh = GetComponent<MeshRenderer>();
+        // 初期設定
         color = mesh.material.color;
         currentTime = 0;
         timeToLive = 0.7f;
-
         speed += Random.value * 0.05f;
     }
 
     void Update()
     {
+        SpaceEffect();
+    }
+
+    void SpaceEffect()
+    {
         if (currentTime < timeToLive)
         {
+            // 上昇
             Vector3 position = gameObject.transform.position;
             position.y += speed * convertMilitoUnitWeight * Time.deltaTime;
             gameObject.transform.position = position;
-            currentTime += Time.deltaTime;
+
+            // 薄く
             Vector3 nowSize = new Vector3(size.x, size.y * (timeToLive - currentTime) / timeToLive, size.z);
             gameObject.transform.localScale = nowSize;
 
+            // 透明化
             mesh.material.color = new Color(color.r, color.g, color.b, 1 * (timeToLive - currentTime) / timeToLive);
+
+            currentTime += Time.deltaTime;
         }
         else
         {
