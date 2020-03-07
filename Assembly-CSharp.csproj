@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>/Applications/Unity/Hub/Editor/2019.2.21f1/Unity.app/Contents/Tools/RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.sh</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -47,22 +45,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="UnityEngine">
-      <HintPath>/Applications/Unity/Hub/Editor/2019.2.21f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>/Applications/Unity/Hub/Editor/2019.2.21f1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-     <Compile Include="Assets\Scripts\CreateObject.cs" />
-     <Compile Include="Assets\Scripts\DebugText.cs" />
-     <Compile Include="Assets\Scripts\DeleteEffectController.cs" />
-     <Compile Include="Assets\Scripts\KeyboardController.cs" />
-     <Compile Include="Assets\Scripts\KeyboardLayout.cs" />
-     <Compile Include="Assets\Scripts\keyController.cs" />
-     <Compile Include="Assets\Scripts\SpaceEffectController.cs" />
-     <Compile Include="Assets\Scripts\TextMeshController.cs" />
+     <Compile Include="Assets\Scripts\Controller\DeleteEffectController.cs" />
+     <Compile Include="Assets\Scripts\Controller\KeyboardController.cs" />
+     <Compile Include="Assets\Scripts\Controller\KeyTextController.cs" />
+     <Compile Include="Assets\Scripts\Controller\SpaceEffectController.cs" />
+     <Compile Include="Assets\Scripts\Debug\DebugText.cs" />
+     <Compile Include="Assets\Scripts\Init\KeyboardLayout.cs" />
+     <Compile Include="Assets\Scripts\MainProcess.cs" />
      <Compile Include="Assets\Scripts\Util\CommonTouch.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
@@ -162,6 +151,9 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine">
+ <HintPath>/Applications/Unity/Hub/Editor/2019.2.21f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.21f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -333,6 +325,9 @@
  </Reference>
  <Reference Include="UnityEngine.XRModule">
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.21f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor">
+ <HintPath>/Applications/Unity/Hub/Editor/2019.2.21f1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
  <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
@@ -696,7 +691,7 @@
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
