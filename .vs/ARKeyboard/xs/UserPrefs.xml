@@ -1,23 +1,21 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controller/KeyboardController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/MainProcess.cs" Line="107" Column="2" />
+      <File FileName="Assets/Scripts/Util/CommonTouch.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controller/KeyboardController.cs" Line="21" Column="38" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ARKeyboard" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="Assets" expanded="True">
-                <Node name="Scripts" expanded="True">
-                  <Node name="Util" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
+          <Node name="ARKeyboard" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="be9e7592-d158-443f-97f3-1fd477a2135d" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
