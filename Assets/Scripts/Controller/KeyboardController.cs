@@ -26,7 +26,7 @@ public class KeyboardController : MonoBehaviour
     AudioSource audioSource;
 
     //  内部
-    private string str = "";
+    private string bufferStr = "";
     private TextMeshPro textMeshPro;
     private float convertMilitoUnitWeight = 0.001f;
 
@@ -42,110 +42,96 @@ public class KeyboardController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             System.Random random = new System.Random();
-            TextMeshPro aText;
+            TextMeshPro aText = new TextMeshPro();
             Vector3 lkeyPos = new Vector3(0, 0, 0);
 
-            aText = Instantiate(textMeshPro, lkeyPos, Quaternion.identity, this.transform);
-            aText.transform.localPosition = lkeyPos;
+            aText = createTextInstance(aText, textMeshPro, lkeyPos, this.transform.localRotation, bufferStr);
             aText.GetComponent<KeyTextController>().isEnter = true;
-            aText.transform.localRotation = this.transform.localRotation;
-            aText.text = str;
             aText.fontSize *= 1.5f;
-            str = "";
+            bufferStr = "";
+
+            // 押下音再生
             audioSource.PlayOneShot(SoundEnter);
         }
         // スペース押下時：スペース独自エフェクト
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             Vector3 pos = new Vector3(0, 0, 0) * convertMilitoUnitWeight;
-            GameObject gObj;
+            GameObject gObj = new GameObject();
             Vector3 gObjSize;
 
+            // 値設定
             Vector3 lkeyPos = new Vector3(-1 * KeyboardLayout.body.sizeX / 2, 0, KeyboardLayout.body.sizeZ / 2) * convertMilitoUnitWeight;
             lkeyPos += (Vector3)KeyboardLayout.layout["space"][0] * convertMilitoUnitWeight;
             gObjSize = (Vector3)KeyboardLayout.layout["space"][1] * convertMilitoUnitWeight;
-            gObj = Instantiate(spaceEffect, lkeyPos, this.transform.localRotation, this.transform);
-            gObj.transform.localScale = gObjSize;
-            gObj.transform.localPosition = lkeyPos;
-            gObj.transform.localRotation = this.transform.localRotation;
+            bufferStr += " ";
+            
+            // 作成
+            gObj = createObjectInstance(gObj, spaceEffect, lkeyPos, this.transform.localRotation, gObjSize);
 
+            // 押下音再生
             audioSource.PlayOneShot(soundKeydown_01);
-            str += " ";
         }
+        // デリート押下時：バッファ削除
         else if ((Input.GetKeyDown(KeyCode.Backspace)) || (Input.GetKeyDown(KeyCode.Delete)))
         {
-            if (str.Length > 0)
+            if (bufferStr.Length > 0)
             {
                 Vector3 pos = new Vector3(0, 0, 0) * convertMilitoUnitWeight;
-                GameObject gObj;
-                Vector3 gObjSize;
+                GameObject gObj = new GameObject();
 
                 Vector3 lkeyPos = new Vector3(1 * KeyboardLayout.body.sizeX / 2, 0.02f, 0) * convertMilitoUnitWeight;
-                // gObjSize = (Vector3)KeyboardLayout.layout["space"][1] * convertMilitoUnitWeight;
-                gObj = Instantiate(deleteEffect, lkeyPos, this.transform.localRotation, this.transform);
-                gObj.transform.localScale = Vector3.zero;
-                gObj.transform.localPosition = lkeyPos;
-                gObj.transform.localRotation = this.transform.localRotation;
-                str = "";
+                gObj = createObjectInstance(gObj, deleteEffect, lkeyPos, this.transform.localRotation, Vector3.zero);
+                bufferStr = "";
+                // 押下音再生
                 audioSource.PlayOneShot(soundDelete);
             }
 
         }
+        // エスケープキー押下時：全部出現
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             foreach (KeyValuePair<string, ArrayList> kvp in KeyboardLayout.layout)
             {
                 System.Random random = new System.Random();
-                TextMeshPro aText;
-                Vector3 gObjSize;
-                Vector3 keyPos = gameObject.transform.position + new Vector3(-1 * KeyboardLayout.body.sizeX / 2, 0, KeyboardLayout.body.sizeZ / 2) * convertMilitoUnitWeight;
+                TextMeshPro aText = new TextMeshPro();
+
                 Vector3 lkeyPos = new Vector3(-1 * KeyboardLayout.body.sizeX / 2, 0, KeyboardLayout.body.sizeZ / 2) * convertMilitoUnitWeight;
-
-                keyPos += (Vector3)kvp.Value[0] * convertMilitoUnitWeight;
-                gObjSize = (Vector3)kvp.Value[1] * convertMilitoUnitWeight; ;
                 lkeyPos += ((Vector3)kvp.Value[0]) * convertMilitoUnitWeight;
-                gObjSize = (Vector3)kvp.Value[1] * convertMilitoUnitWeight; ;
 
-                aText = Instantiate(textMeshPro, lkeyPos, Quaternion.identity, this.transform);
+                aText = createTextInstance(aText, textMeshPro, lkeyPos, this.transform.localRotation, kvp.Key.ToString());
                 aText.color = new Color((float)random.NextDouble() * 0.9f + 0.1f, (float)random.NextDouble() * 0.9f + 0.1f, (float)random.NextDouble() * 0.9f + 0.1f, (float)random.NextDouble() * 0.1f + 0.9f);
-                aText.transform.localPosition = lkeyPos;
-                aText.transform.localRotation = this.transform.localRotation;
-                aText.text = kvp.Key.ToString();
-
             }
+            // 押下音再生
             audioSource.PlayOneShot(soundSpace);
         }
+        //　その他通常キー押下時：出現＋バッファ
         else
         {
             foreach (char c in Input.inputString)
             {
                 ArrayList arKey = new ArrayList();
                 string tmpStr;
-                TextMeshPro aText;
-                GameObject gObj;
-                Vector3 gObjSize;
-                Vector3 keyPos = gameObject.transform.position + new Vector3(-1 * KeyboardLayout.body.sizeX / 2, 0, KeyboardLayout.body.sizeZ / 2) * convertMilitoUnitWeight;
+                TextMeshPro aText = new TextMeshPro();
+
                 Vector3 lkeyPos = new Vector3(-1 * KeyboardLayout.body.sizeX / 2, 0, KeyboardLayout.body.sizeZ / 2) * convertMilitoUnitWeight;
+
+                // 押下キーが設定から取得できた場合
                 if (KeyboardLayout.layout.TryGetValue(c.ToString(), out arKey))
                 {
-                    keyPos += (Vector3)arKey[0] * convertMilitoUnitWeight;
-                    gObjSize = (Vector3)arKey[1] * convertMilitoUnitWeight;
                     lkeyPos += (Vector3)arKey[0] * convertMilitoUnitWeight;
                     tmpStr = c.ToString();
-                    str += c;
+                    bufferStr += c;
                 }
                 else
                 {
                     lkeyPos += new Vector3(KeyboardLayout.body.sizeX / 2, 0, -1 * KeyboardLayout.body.sizeZ / 2) * convertMilitoUnitWeight;
-                    gObjSize = new Vector3(20, 1, 20) * convertMilitoUnitWeight;
                     tmpStr = "><";
+
                 }
-                aText = Instantiate(textMeshPro, lkeyPos, Quaternion.identity, this.transform);
-                aText.transform.localPosition = lkeyPos;
-                aText.transform.localRotation = this.transform.localRotation;
-                aText.text = tmpStr;
+                aText = createTextInstance(aText, textMeshPro, lkeyPos, this.transform.localRotation, tmpStr);
 
-
+                // 押下音再生
                 if (Random.value > 0.5f)
                 {
                     audioSource.PlayOneShot(soundKeydown_01);
@@ -155,6 +141,26 @@ public class KeyboardController : MonoBehaviour
                     audioSource.PlayOneShot(soundKeydown_02);
                 }
             }
+        }
+
+        // GameObjectを作成+設定
+        GameObject createObjectInstance(GameObject gObj, GameObject instance, Vector3 pos, Quaternion rot, Vector3 scale)
+        {
+            gObj = Instantiate(instance, pos, Quaternion.identity, this.transform);
+            gObj.transform.localPosition = pos;
+            gObj.transform.localRotation = rot;
+            gObj.transform.localScale = scale;
+            return gObj;
+        }
+
+        // TextMeshProを作成+設定
+        TextMeshPro createTextInstance(TextMeshPro txtObj, TextMeshPro instance, Vector3 pos, Quaternion rot, string text)
+        {
+            txtObj = Instantiate(instance, pos, Quaternion.identity, this.transform);
+            txtObj.transform.localPosition = pos;
+            txtObj.transform.localRotation = rot;
+            txtObj.text = text;
+            return txtObj;
         }
 
     }

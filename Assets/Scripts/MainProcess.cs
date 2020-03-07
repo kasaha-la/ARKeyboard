@@ -76,7 +76,6 @@ public class CreateObject : MonoBehaviour
     {
         if (raycastManager.Raycast(v2TouchPos, hitResults, TrackableType.PlaneWithinPolygon))
         {
-            // DebugText.instance.SetValue("Raycast detect");
             if (spawnedObject == null)
             {
                 spawnedObject = Instantiate(objectPrefab, hitResults[0].pose.position, hitResults[0].pose.rotation);
