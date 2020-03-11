@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Controller\KeyboardController.cs" />
      <Compile Include="Assets\Scripts\Controller\KeyTextController.cs" />
      <Compile Include="Assets\Scripts\Controller\SpaceEffectController.cs" />
+     <Compile Include="Assets\Scripts\Controller\StatusButtonController.cs" />
      <Compile Include="Assets\Scripts\Debug\DebugText.cs" />
      <Compile Include="Assets\Scripts\Init\KeyboardLayout.cs" />
      <Compile Include="Assets\Scripts\MainProcess.cs" />
@@ -72,85 +73,85 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
  <Reference Include="Unity.XR.ARKit.FaceTracking.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARKit.FaceTracking.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARKit.FaceTracking.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.Management">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.ARKit">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARKit.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARKit.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Subsystem.Registration">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.ARSubsystems">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.ARSubsystems.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.ARCore">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.ARFoundation.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.ARKit.FaceTracking">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARKit.FaceTracking.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARKit.FaceTracking.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.ARFoundation">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.ARCore.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.XR.LegacyInputHelpers">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.Management.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.SpatialTracking">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.SpatialTracking">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.XR.LegacyInputHelpers">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.ARKit.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.21f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -330,13 +331,13 @@
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.21f1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>/Users/nano/Documents/6 Develop/Unity/ARKeyboard/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>/Users/nano/Documents/Develop/Unity/ARKeyboard/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.21f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(ARRaycastManager))]
 [RequireComponent(typeof(ARTrackedImageManager))]
-public class CreateObject : MonoBehaviour
+public class MainProcess : MonoBehaviour
 {
     [SerializeField]
     GameObject objectPrefab;
@@ -41,11 +41,11 @@ public class CreateObject : MonoBehaviour
             if (iTCount == 1)
             {
                 // 生成 or 場所の変更
-                Create(Input.GetTouch(0).position);
-
+                // Create(Input.GetTouch(0).position);
             }
         }
     }
+
 
     // public Camera worldSpaceCanvasCamera;
     [SerializeField]
@@ -72,20 +72,20 @@ public class CreateObject : MonoBehaviour
 
     //認識した平面に手動で作成する場合の関数
     //使用数場合はAR Session OriginなどにAR Plane Managerをアタッチする必要がある
-    void Create(Vector2 v2TouchPos)
-    {
-        if (raycastManager.Raycast(v2TouchPos, hitResults, TrackableType.PlaneWithinPolygon))
-        {
-            if (spawnedObject == null)
-            {
-                spawnedObject = Instantiate(objectPrefab, hitResults[0].pose.position, hitResults[0].pose.rotation);
-            }
-            else
-            {
-                spawnedObject.transform.position = hitResults[0].pose.position;
-            }
-        }
-    }
+    // void Create(Vector2 v2TouchPos)
+    // {
+    //     if (raycastManager.Raycast(v2TouchPos, hitResults, TrackableType.PlaneWithinPolygon))
+    //     {
+    //         if (spawnedObject == null)
+    //         {
+    //             spawnedObject = Instantiate(objectPrefab, hitResults[0].pose.position, hitResults[0].pose.rotation);
+    //         }
+    //         else
+    //         {
+    //             spawnedObject.transform.position = hitResults[0].pose.position;
+    //         }
+    //     }
+    // }
 
 
     //オブジェクトトラッキングが更新（新規も含む）された際の処理
@@ -100,7 +100,26 @@ public class CreateObject : MonoBehaviour
             UpdateObjInfo(trackedObject);
     }
 
+    private ARTrackedObject staticObject;
+
     void UpdateObjInfo(ARTrackedObject trackedObject)
     {
+        trackedObject.gameObject.SetActive(true);
+    }
+
+    // トラッキングを止めて、位置を固定する
+    public void StopObjectTracking()
+    {
+        m_TrackedObjectManager.enabled = false;
+    }
+
+    // トラッキングを再開する　※再開時に現在のオブジェクトは一旦ディアクティブする。
+    public void StartObjectTracking()
+    {
+        foreach (ARTrackedObject obj in m_TrackedObjectManager.trackables)
+        {
+            obj.gameObject.SetActive(false);
+        }
+        m_TrackedObjectManager.enabled = true;
     }
 }

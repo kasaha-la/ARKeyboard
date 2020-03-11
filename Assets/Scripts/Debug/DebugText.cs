@@ -7,6 +7,7 @@ public class DebugText : MonoBehaviour
 {
     public static DebugText instance { get; private set; }
     TextMeshProUGUI textMeshPro;
+    static bool debugMode = false;
 
     void Awake()
     {
@@ -18,9 +19,15 @@ public class DebugText : MonoBehaviour
     {
     }
 
-    public void SetValue(string text)
+    private void SetValue(string text)
     {				      
         textMeshPro.text = text;
+    }
+
+    public static void Log(string text){
+        if(debugMode){
+            DebugText.instance.SetValue(text);
+        }
     }
 
 }
