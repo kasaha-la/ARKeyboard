@@ -5,6 +5,8 @@ using UnityEngine.XR.ARSubsystems;
 using TMPro;
 using UnityEngine.UI;
 
+// #nullable enable
+
 [RequireComponent(typeof(ARRaycastManager))]
 [RequireComponent(typeof(ARTrackedImageManager))]
 public class MainProcess : MonoBehaviour
